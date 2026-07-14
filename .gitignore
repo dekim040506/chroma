@@ -1,0 +1,39 @@
+# Mac
+.DS_Store
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Python virtual environment
+.venv/
+venv/
+env/
+
+# Environment variables and API keys
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
+logs/
+
+# Test/cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Chroma database
+chroma_db/
+*.sqlite3
+*.sqlite
+chroma_export_*.html
