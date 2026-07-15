@@ -65,4 +65,4 @@ if selected:
         st.subheader("Search Results")
         st.dataframe(search_df, use_container_width=True)
 
-        # streamlit run chroma_viewer.py
+        # streamlit run 21_chroma_viewer.py
