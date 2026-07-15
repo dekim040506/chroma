@@ -1,8 +1,9 @@
 import streamlit as st
 import chromadb
 import pandas as pd
+from pathlib import Path
 
-DB_PATH = "/Users/kimdong-eul/myprojects/chroma/chroma_db"
+DB_PATH = Path(__file__).resolve().parent / "chroma_db"
 
 st.set_page_config(
     page_title="Chroma DB Viewer",
@@ -11,7 +12,7 @@ st.set_page_config(
 
 st.title("Chroma DB Viewer")
 
-client = chromadb.PersistentClient(path=DB_PATH)
+client = chromadb.PersistentClient(path=str(DB_PATH))
 
 collections = client.list_collections()
 collection_names = [c.name for c in collections]

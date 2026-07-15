@@ -2,11 +2,13 @@ import chromadb
 import pandas as pd
 import json
 from datetime import datetime
+from pathlib import Path
 
-DB_PATH = "/Users/kimdong-eul/myprojects/chroma/chroma_db"
+PROJECT_DIR = Path(__file__).resolve().parent
+DB_PATH = PROJECT_DIR / "chroma_db"
 COLLECTION_NAME = "my_first_collection"
 
-client = chromadb.PersistentClient(path=DB_PATH)
+client = chromadb.PersistentClient(path=str(DB_PATH))
 collection = client.get_collection(COLLECTION_NAME)
 
 result = collection.get(
@@ -100,7 +102,7 @@ html = f"""
 </html>
 """
 
-output_file = f"chroma_export_{COLLECTION_NAME}_{file_time}.html"
+output_file = PROJECT_DIR / f"chroma_export_{COLLECTION_NAME}_{file_time}.html"
 
 with open(output_file, "w", encoding="utf-8") as f:
     f.write(html)

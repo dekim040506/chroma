@@ -1,8 +1,11 @@
 import chromadb
+from pathlib import Path
+
+DB_PATH = Path(__file__).resolve().parent / "chroma_db"
 
 # 1. Chroma 데이터를 로컬 폴더에 저장하는 클라이언트 생성
-# ./chroma_db 폴더가 자동으로 생성됩니다.
-client = chromadb.PersistentClient(path="./chroma_db")
+# 프로젝트의 chroma_db 폴더가 자동으로 생성됩니다.
+client = chromadb.PersistentClient(path=str(DB_PATH))
 
 # 2. Collection 생성 또는 가져오기
 # Collection은 문서들을 담는 저장 공간입니다.
